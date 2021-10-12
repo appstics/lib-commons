@@ -3,6 +3,7 @@ com\jkstic\libcommons\service\WsService.class
 com\jkstic\libcommons\dto\UserEmailDto$UserEmailDtoBuilder.class
 com\jkstic\libcommons\dto\UserPersonDto$UserPersonDtoBuilder.class
 com\jkstic\libcommons\dto\PersonaDto$PersonaDtoBuilder.class
+com\jkstic\libcommons\Signature.class
 com\jkstic\libcommons\dto\UserEmailDto.class
 com\jkstic\libcommons\dto\MarketsDto.class
 com\jkstic\libcommons\ws\dto\MarketsStreamRequestDto.class
@@ -17,12 +18,15 @@ com\jkstic\libcommons\dto\ItemWalletDto$ItemWalletDtoBuilder.class
 com\jkstic\libcommons\dto\UserPersonDto.class
 com\jkstic\libcommons\ClientBuilderWs$ClientBuilderWsBuilder.class
 com\jkstic\libcommons\ws\dto\MarketsStreamRequestDto$MarketsStreamRequestDtoBuilder.class
+com\jkstic\libcommons\dto\TransactionDto$TransactionDtoBuilder.class
 com\jkstic\libcommons\ws\dto\MarketsStreamViewerDto$MarketsStreamViewerDtoBuilder.class
 com\jkstic\libcommons\ClientBuilderRest$ClientBuilderRestBuilder.class
+com\jkstic\libcommons\dto\TransactionDto.class
 com\jkstic\libcommons\service\impl\WsServiceImpl.class
 com\jkstic\libcommons\dto\ExangeDto$ExangeDtoBuilder.class
 com\jkstic\libcommons\dto\ConfigurationDto.class
 com\jkstic\libcommons\dto\ItemWalletDto.class
 com\jkstic\libcommons\ClientBuilderRest.class
+com\jkstic\libcommons\Codify.class
 com\jkstic\libcommons\dto\UsersDto.class
 com\jkstic\libcommons\ClientBuilderWs.class
