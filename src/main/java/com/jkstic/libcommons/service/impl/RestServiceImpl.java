@@ -3,14 +3,18 @@ package com.jkstic.libcommons.service.impl;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.jkstic.libcommons.ClientBuilderRest;
 import com.jkstic.libcommons.service.RestService;
 
@@ -21,14 +25,17 @@ import lombok.extern.slf4j.Slf4j;
 public class RestServiceImpl implements RestService<Object> {
 
 	@Override
-	public Object get(ClientBuilderRest data, Class<?> obj, Boolean debug) throws IOException, URISyntaxException {
+	public Object get(ClientBuilderRest data, Class<?> obj, Boolean asList, Boolean debug) throws IOException, URISyntaxException {
 
 		data = dataQueryParams(data);
 
 		HttpURLConnection conn = dataConectionHeaders(data, "GET", debug);
 
 		if (conn.getResponseCode() == 200) {
-			return dataRequestParams(conn, obj, debug);
+			if (debug) {
+				log.info("resquest ok");
+			}
+			return dataRequestParams(conn, obj,asList, debug);
 		} else if (conn.getResponseCode() != 200) {
 			if (debug) {
 				log.error("ErrorCode: " + conn.getResponseCode());
@@ -42,7 +49,7 @@ public class RestServiceImpl implements RestService<Object> {
 	}
 
 	@Override
-	public Object post(ClientBuilderRest data, Class<?> obj, Boolean debug) throws IOException, URISyntaxException {
+	public Object post(ClientBuilderRest data, Class<?> obj, Boolean asList, Boolean debug) throws IOException, URISyntaxException {
 
 		data = dataQueryParams(data);
 		byte[] postDataBytes = data.getBody().getBytes("UTF-8");
@@ -54,9 +61,12 @@ public class RestServiceImpl implements RestService<Object> {
 		conn.getOutputStream().write(postDataBytes);
 
 		if (conn.getResponseCode() == 200) {
-			return dataRequestParams(conn, obj, debug);
+			if (debug) {
+				log.info("resquest ok");
+			}
+			return dataRequestParams(conn, obj,asList, debug);
 		} else if (conn.getResponseCode() == 202) {
-			return dataRequestParams(conn, obj, debug);
+			return dataRequestParams(conn, obj, asList,debug);
 		} else if (conn.getResponseCode() != 200) {
 			if (debug) {
 				log.error("ErrorCode: " + conn.getResponseCode());
@@ -70,7 +80,7 @@ public class RestServiceImpl implements RestService<Object> {
 	}
 
 	@Override
-	public Object put(ClientBuilderRest data, Class<?> obj, Boolean debug) throws IOException, URISyntaxException {
+	public Object put(ClientBuilderRest data, Class<?> obj, Boolean asList, Boolean debug) throws IOException, URISyntaxException {
 
 		data = dataQueryParams(data);
 		byte[] postDataBytes = data.getBody().getBytes("UTF-8");
@@ -82,7 +92,10 @@ public class RestServiceImpl implements RestService<Object> {
 		conn.getOutputStream().write(postDataBytes);
 
 		if (conn.getResponseCode() == 200) {
-			return dataRequestParams(conn, obj, debug);
+			if (debug) {
+				log.info("resquest ok");
+			}
+			return dataRequestParams(conn, obj, asList,debug);
 		} else if (conn.getResponseCode() != 200) {
 			if (debug) {
 				log.error("ErrorCode: " + conn.getResponseCode());
@@ -96,14 +109,17 @@ public class RestServiceImpl implements RestService<Object> {
 	}
 
 	@Override
-	public Object delete(ClientBuilderRest data, Class<?> obj, Boolean debug) throws IOException, URISyntaxException {
+	public Object delete(ClientBuilderRest data, Class<?> obj, Boolean asList, Boolean debug) throws IOException, URISyntaxException {
 
 		data = dataQueryParams(data);
 
 		HttpURLConnection conn = dataConectionHeaders(data, "DELETE", debug);
 
 		if (conn.getResponseCode() == 200) {
-			return dataRequestParams(conn, obj, debug);
+			if (debug) {
+				log.info("resquest ok");
+			}
+			return dataRequestParams(conn, obj,asList, debug);
 		} else if (conn.getResponseCode() != 200) {
 			if (debug) {
 				log.error("ErrorCode: " + conn.getResponseCode());
@@ -134,7 +150,7 @@ public class RestServiceImpl implements RestService<Object> {
 		}
 
 		if (debug) {
-			log.info("CALL: " + method + "  " + conn.getURL().toURI().toString() + "  " + propietyheaders);
+			log.info("CALL: " + method + "  " + conn.getURL().toURI().toString() + "  " + propietyheaders + " -d " + data.getBody());
 		}
 
 		return conn;
@@ -153,31 +169,39 @@ public class RestServiceImpl implements RestService<Object> {
 		return data;
 	}
 
-	private Object dataRequestParams(HttpURLConnection conn, Class<?> obj, Boolean debug) {
+	private Object dataRequestParams(HttpURLConnection conn, Class<?> obj, Boolean asList, Boolean debug) {
 		BufferedReader br = null;
 		try {
 			br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+
 			String result = "";
 			String output = br.readLine();
+
 			while (output != null) {
 				result += output;
 				output = br.readLine();
 			}
 
-			//if (debug) {
-			//	log.info("response: " + result);
-			//}
-
 			if (obj == null) {
 				return result;
 			} else {
-				return new Gson().fromJson(result, obj);
+				if(asList) {
+					return castingArrayList(result, obj);
+				}else {
+					return new Gson().fromJson(result, obj);
+				}
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return br;
+		return null;
 
 	}
 
+	private <T> List<T> castingArrayList(String json, Class<?> obj) {
+
+		Type type = TypeToken.getParameterized(ArrayList.class, obj).getType();
+
+		return new Gson().fromJson(json, type);
+	}
 }

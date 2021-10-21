@@ -6,7 +6,9 @@ C:\Users\jkind\Desktop\appstics\lib-commons\src\main\java\com\jkstic\libcommons\
 C:\Users\jkind\Desktop\appstics\lib-commons\src\main\java\com\jkstic\libcommons\dto\UserPersonDto.java
 C:\Users\jkind\Desktop\appstics\lib-commons\src\main\java\com\jkstic\libcommons\service\RestService.java
 C:\Users\jkind\Desktop\appstics\lib-commons\src\main\java\com\jkstic\libcommons\ClientBuilderWs.java
+C:\Users\jkind\Desktop\appstics\lib-commons\src\main\java\com\jkstic\libcommons\constants\ConstantsErrors.java
 C:\Users\jkind\Desktop\appstics\lib-commons\src\main\java\com\jkstic\libcommons\dto\ConfigurationDto.java
+C:\Users\jkind\Desktop\appstics\lib-commons\src\main\java\com\jkstic\libcommons\constants\Constantes.java
 C:\Users\jkind\Desktop\appstics\lib-commons\src\main\java\com\jkstic\libcommons\dto\ItemWalletDto.java
 C:\Users\jkind\Desktop\appstics\lib-commons\src\main\java\com\jkstic\libcommons\dto\MarketsDto.java
 C:\Users\jkind\Desktop\appstics\lib-commons\src\main\java\com\jkstic\libcommons\dto\PersonaDto.java
@@ -14,6 +16,7 @@ C:\Users\jkind\Desktop\appstics\lib-commons\src\main\java\com\jkstic\libcommons\
 C:\Users\jkind\Desktop\appstics\lib-commons\src\main\java\com\jkstic\libcommons\dto\UserEmailDto.java
 C:\Users\jkind\Desktop\appstics\lib-commons\src\main\java\com\jkstic\libcommons\service\impl\RestServiceImpl.java
 C:\Users\jkind\Desktop\appstics\lib-commons\src\main\java\com\jkstic\libcommons\service\WsService.java
+C:\Users\jkind\Desktop\appstics\lib-commons\src\main\java\com\jkstic\libcommons\dto\walletBinanceDto.java
 C:\Users\jkind\Desktop\appstics\lib-commons\src\main\java\com\jkstic\libcommons\service\impl\WsServiceImpl.java
 C:\Users\jkind\Desktop\appstics\lib-commons\src\main\java\com\jkstic\libcommons\dto\ExangeDto.java
 C:\Users\jkind\Desktop\appstics\lib-commons\src\main\java\com\jkstic\libcommons\ws\dto\MarketsStreamViewerDto.java

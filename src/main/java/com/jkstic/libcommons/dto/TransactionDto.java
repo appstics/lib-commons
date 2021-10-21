@@ -3,6 +3,8 @@ package com.jkstic.libcommons.dto;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,6 +21,8 @@ import lombok.Setter;
 public class TransactionDto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
+	@JsonFormat(pattern="dd-MMM-yyyy HH:mm:ss")
 	private Date date;
 	private String par;
 	private String side;
