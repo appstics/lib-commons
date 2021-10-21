@@ -1,6 +1,7 @@
 com\jkstic\libcommons\dto\UsersDto$UsersDtoBuilder.class
 com\jkstic\libcommons\service\WsService.class
 com\jkstic\libcommons\dto\UserEmailDto$UserEmailDtoBuilder.class
+com\jkstic\libcommons\dto\UserPersonDto$UserPersonDtoBuilder.class
 com\jkstic\libcommons\constants\Constantes.class
 com\jkstic\libcommons\dto\PersonaDto$PersonaDtoBuilder.class
 com\jkstic\libcommons\Signature.class
@@ -13,10 +14,12 @@ com\jkstic\libcommons\dto\ExangeDto.class
 com\jkstic\libcommons\dto\PersonaDto.class
 com\jkstic\libcommons\service\impl\RestServiceImpl.class
 com\jkstic\libcommons\service\RestService.class
+com\jkstic\libcommons\constants\ConstantsErrors.class
 com\jkstic\libcommons\ws\dto\MarketsStreamViewerDto.class
 com\jkstic\libcommons\dto\ConfigurationDto$ConfigurationDtoBuilder.class
 com\jkstic\libcommons\dto\ItemWalletDto$ItemWalletDtoBuilder.class
 com\jkstic\libcommons\dto\walletBinanceDto.class
+com\jkstic\libcommons\dto\UserPersonDto.class
 com\jkstic\libcommons\ClientBuilderWs$ClientBuilderWsBuilder.class
 com\jkstic\libcommons\ws\dto\MarketsStreamRequestDto$MarketsStreamRequestDtoBuilder.class
 com\jkstic\libcommons\dto\TransactionDto$TransactionDtoBuilder.class
