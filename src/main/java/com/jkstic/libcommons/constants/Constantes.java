@@ -27,8 +27,6 @@ public class Constantes {
 	public final static String BINANCE_APIKEY_PERMISIONS = "https://api.binance.com/sapi/v1/account/apiRestrictions";
 	public final static String BINANCE_MY_WALLET = "https://api.binance.com/sapi/v1/capital/config/getall";
 	public final static String BINANCE_ALL_ORDERS = "https://api.binance.com/api/v3/allOrders";
-	
-	
 
 	// BINANCE_HEADERS
 	public final static Map<String, String> HEADERS_BINACE = new HashMap<String, String>();
@@ -38,6 +36,15 @@ public class Constantes {
 
 	// RESTCLIENT
 	public final static Map<String, String> HEADERS = new HashMap<String, String>();
+
+	// DATA
+	public final static String FORMAT_DATE = "yyyy-MM-dd HH:mm:ss";
+
+	// JWT
+	public final static String HEADER = "Authorization";
+	public final static String PREFIX = "Bearer ";
+	public final static String SECRET = "AtalayaSystem";
+	public final static String JWTAUTH = "authorities";
 
 	static {
 		HEADERS.put("accept", "*/*");
