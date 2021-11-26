@@ -2,6 +2,8 @@ package com.jkstic.libcommons.dto;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,7 +20,10 @@ import lombok.Setter;
 public class PersonaDto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
+	@JsonIgnore
 	private Long id;
+	
 	private String nombre;
 	private String apellido1;
 	private String apellido2;
