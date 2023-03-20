@@ -37,5 +37,5 @@ jobs:
           to: ${{secrets.TELEGRAM_TO}}
           token: ${{secrets.TELEGRAM_TOKEN}}
           message: |
-            👌Your image is pushed successfully to Docker Hub 🐳 with version ${{env.ACTUAL_POM_VERSION}} or latest
-            See the result at https://hub.docker.com/r/${{secrets.DOCKERHUB_USERNAME}}/${{env.APP_NAME}}/tags
+            👌Your image is compiled successfully with version ${{env.ACTUAL_POM_VERSION}}
+            This the result at ${{env.APP_NAME}}
