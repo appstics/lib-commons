@@ -1,0 +1,20 @@
+name: FirstAction
+
+on: [ push ]
+
+jobs:
+  jobtest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ env.ACTUAL_BRANCH_NAME }}
+
+      - name: Catch actual branch pom version
+        shell: bash
+        run: |
+          echo "ACTUAL_POM_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
+          echo "APP_NAME=$(mvn help:evaluate -Dexpression=project.artifactId -q -DforceStdout)" >> $GITHUB_ENV          
+      - name: Maven Build
+        run: mvn clean install -f pom.xml

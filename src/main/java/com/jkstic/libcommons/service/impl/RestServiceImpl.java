@@ -14,6 +14,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 import com.jkstic.libcommons.ClientBuilderRest;
 import com.jkstic.libcommons.service.RestService;
@@ -34,6 +35,7 @@ public class RestServiceImpl implements RestService<Object> {
 		if (conn.getResponseCode() == 200) {
 			if (debug) {
 				log.info("resquest ok");
+				log.info("============================================================================================");
 			}
 			return dataRequestParams(conn, obj,asList, debug);
 		} else if (conn.getResponseCode() != 200) {
@@ -181,7 +183,9 @@ public class RestServiceImpl implements RestService<Object> {
 				result += output;
 				output = br.readLine();
 			}
-
+			if (debug) {
+//				log.info("response: " + result);
+			}
 			if (obj == null) {
 				return result;
 			} else {
@@ -192,7 +196,13 @@ public class RestServiceImpl implements RestService<Object> {
 				}
 			}
 		} catch (IOException e) {
-			e.printStackTrace();
+			if (debug) {
+				e.printStackTrace();
+			}
+		}catch (JsonSyntaxException e) {
+			if (debug) {
+				e.printStackTrace();
+			}
 		}
 		return null;
 

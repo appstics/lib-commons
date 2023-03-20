@@ -1,6 +1,7 @@
 package com.jkstic.libcommons.dto;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jkstic.libcommons.enums.ProcessorEnum;
@@ -32,6 +33,13 @@ public class ProcessorDto implements Serializable {
 	private Boolean notification_email;
 	private ProcessorEnum state;
 	private Long idUser;
+	private String typeProcessor;
+	private BigDecimal bolsaMonedas;
+    private BigDecimal moneyAttack;
+    private String exchangeSelected;
+    private int timeRepeit;
+    private int maxRepit;
+    private String monedaUsada;
 	
 	@JsonIgnore
 	private ProcessorInCoreEnum stateInCore;
