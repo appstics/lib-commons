@@ -40,7 +40,9 @@ public class ProcessorDto implements Serializable {
     private int timeRepeit;
     private int maxRepit;
     private String monedaUsada;
-	
+    
+    private String time_candles;
+    private String size_candles;
 	@JsonIgnore
 	private ProcessorInCoreEnum stateInCore;
 	

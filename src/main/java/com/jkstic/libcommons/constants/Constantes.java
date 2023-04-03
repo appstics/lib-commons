@@ -9,6 +9,8 @@ import java.util.concurrent.atomic.AtomicReference;
 import com.jkstic.libcommons.Signature;
 
 public class Constantes {
+	
+	public final static String DIVISOR = "==========================";
 
 	// BINANCE URLS https://binance-docs.github.io/apidocs/spot/en/#introduction
 	public final static String BINANCE_SERVER_HOST = "https://api.binance.com";
