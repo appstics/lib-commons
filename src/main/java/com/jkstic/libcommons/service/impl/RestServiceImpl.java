@@ -29,6 +29,10 @@ public class RestServiceImpl implements RestService<Object> {
 	public Object get(ClientBuilderRest data, Class<?> obj, Boolean asList, Boolean debug) throws IOException, URISyntaxException {
 
 		data = dataQueryParams(data);
+		
+//		if (debug) {
+//			log.info(data.toString());
+//		}
 
 		HttpURLConnection conn = dataConectionHeaders(data, "GET", debug);
 

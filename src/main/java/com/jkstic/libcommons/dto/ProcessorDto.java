@@ -45,6 +45,6 @@ public class ProcessorDto implements Serializable {
     private String size_candles;
 	@JsonIgnore
 	private ProcessorInCoreEnum stateInCore;
-	
+	private PersonaDto persona;
 	
 }
