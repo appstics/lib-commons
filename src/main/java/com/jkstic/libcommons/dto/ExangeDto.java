@@ -21,4 +21,5 @@ public class ExangeDto implements Serializable{
 	private Long id;
 	private String nombre;
 	private float volumen;
+	private String data;
 }
