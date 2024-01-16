@@ -46,5 +46,10 @@ public class ProcessorDto implements Serializable {
 	@JsonIgnore
 	private ProcessorInCoreEnum stateInCore;
 	private PersonaDto persona;
+	@JsonIgnore
+	private boolean connectedWs;
+	@JsonIgnore
+	private boolean activeWs;
+	
 	
 }

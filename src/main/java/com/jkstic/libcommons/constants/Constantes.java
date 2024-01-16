@@ -13,6 +13,7 @@ public class Constantes {
 	//CORE
 	public final static String DIVISOR = "==========================";
 	public final static String LOGS_PROCESSORS = "LOGS_PROCESSORS";
+	public final static String LOGS_WS_PROCESSORS = "LOGS_WS_PROCESSORS";
 
 	// BINANCE URLS https://binance-docs.github.io/apidocs/spot/en/#introduction
 	public final static String BINANCE_SERVER_HOST = "https://api.binance.com";
