@@ -51,5 +51,4 @@ public class ProcessorDto implements Serializable {
 	@JsonIgnore
 	private boolean activeWs;
 	
-	
 }
